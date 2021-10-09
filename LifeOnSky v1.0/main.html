@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" initial-scale="75"/>
+
+    <title>Life On Sky</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="nomalFunction.js"> </script>
+
+
+    <link rel="stylesheet" type="text/css" href="nomalCss.css">
+
+</head>
+
+<body>
+
+
+    <div id="topOfpage"><img src="img/flightIcon.jpg" alt="icon" height="120px"> Life On Sky
+
+        <button class="buttons">logging</button>
+        <button class="buttons">buzhidaoxiesha</button>
+    </div>
+
+    <br>
+    <label for=""></label>
+    <div id="secondLine">
+
+        <table id="searchTable" border="0">
+            <tr>
+                <td style="text-align: left;">seat type:</td>
+                <td class='space'></td>
+                <td id="seatType">
+                    <label><input type="radio" name="type" value="First">first class</label>
+                    <label><input type="radio" name="type" value="Business">Business</label>
+                    <label><input type="radio" name="type" value="Economy" checked >Economy</label>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: left;">departure city:</td>
+                <td class='space'></td>
+                <td id="departure"><select>
+
+                        <option>Sydney</option>
+                        <option>Melbourne</option>
+                        <option>Brisbane</option>
+                        <option>Canberra</option>
+                        <option>Perth</option>
+                        <option>Adelaide</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;">arrival city:</td>
+                <td class='space'></td>
+                <td id="arrival"><select>
+                        <option>Sydney</option>
+                        <option>Melbourne</option>
+                        <option>Brisbane</option>
+                        <option>Canberra</option>
+                        <option>Perth</option>
+                        <option>Adelaide</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td style="text-align:left;">Extra services (food and drink):</td>
+                <td class='space'></td>
+                <td id="extraServer">
+                    <input type="radio" name="services" value="yes"><label>Yes</label>
+                    <input type="radio" name="services" value="no" checked ><label>No</label>
+                </td>
+            </tr>
+        </table>
+
+        <button id="saerchButton">saerch</button>
+
+    </div>
+
+    <div id="thirdLine">
+
+        <div id="recommendation">
+            Today's recommendation
+        </div>
+    </div>
+    <br><br>
+
+
+    <div id="recommendationTable">
+
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- python -m http.server 8080 -->
