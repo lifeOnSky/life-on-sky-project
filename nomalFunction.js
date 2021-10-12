@@ -1,20 +1,23 @@
 
-
-
 $(document).ready(function () {
+
+    var loginUser;
+    openIndexedDB();
+
 
     $("#test").on("click", () => {
         alert("hello");
     });
 
+    $("#register").on("click", () => {
+        window.location = "/pages/register.html"
+    });
+
+    $("#logging").on("click", () => {
+        window.location = "/pages/userLogin.html"
+    });
 
     $("#tabs").tabs();
-
-
-
-    $("body").scroll(function () {
-        $("#topOfpage").slideToggle(1000);
-    });
 
     $.ajax({
         url: "http://localhost:8080/data/Australia.json",
@@ -33,7 +36,7 @@ $(document).ready(function () {
                     "<td class='firstRowData'>" + value.arrive_time + " </td>" +
                     "<td class='space'></td>" +
                     "<td class='firstRowData'>" + value.price + " </td>" +
-                    "<td class='tableData'><button class='bookButton'>book</button></td>" +
+                    "<td class='tableData'><button class='bookButton' id='" + value.pk + "' value='s'>book</button></td>" +
                     "</tr>" +
                     "<tr>" +
                     "<td class='secondRowData'>seat type: " + value.class + " </td>" +
@@ -50,11 +53,20 @@ $(document).ready(function () {
                 );
 
             })
+
+
+
+
+            $(".bookButton").click(function () {
+                var pk = $(this).attr("id");
+                bookFlight(pk);
+            })
+
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            alert("404: please read read me file!");
+
         }
     })
 
@@ -71,9 +83,8 @@ $(document).ready(function () {
 
     function querySeatLeft() {
         var x = 30;
-        var y = 0;
-        return "Remaining seats: " + parseInt(Math.random() * (x - y + 1) + y);;
-
+        var y = 1;
+        return "Remaining seats: " + parseInt(Math.random() * (x - y + 1) + y);
     }
 
     function serchData(seatType, departure, arrival, servers) {
@@ -103,9 +114,7 @@ $(document).ready(function () {
 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
+                alert("404: please read read me file!");
             }
         })
 
@@ -134,7 +143,7 @@ $(document).ready(function () {
                     "<td class='firstRowData'>" + value.arrive_time + " </td>" +
                     "<td class='space'></td>" +
                     "<td class='firstRowData'>" + value.price + " </td>" +
-                    "<td class='tableData'><button class='bookButton'>book</button></td>" +
+                    "<td class='tableData'><button class='bookButton' id='" + value.pk + "'>book</button></td>" +
                     "</tr>" +
                     "<tr>" +
                     "<td class='secondRowData'> seat type: " + value.class + " </td>" +
@@ -151,7 +160,134 @@ $(document).ready(function () {
                 );
 
             })
+
+            $(".bookButton").click(function () {
+                var pk = $(this).attr("id");
+                bookFlight(pk);
+            })
+
         }
     }
+
+    var db;
+    function openIndexedDB() {
+        //create database
+        var request = window.indexedDB.open("myDB", 1);
+
+        request.onsuccess = function (e) {
+
+            db = request.result;
+            console.log(db);
+            if (!db.objectStoreNames.contains('users')) {
+                //set PK
+                var objectStore = db.createObjectStore('users', { keyPath: 'userName' });
+                console.log('done');
+            }
+            readAllTransaction();
+            getLoginUser();
+        };
+
+        request.onerror = function (event) {
+            console.log(event);
+        };
+
+        request.onupgradeneeded = function (e) {
+            db = request.result;
+            console.log(db);
+
+            if (!db.objectStoreNames.contains('users')) {
+                var objectStore = db.createObjectStore('users', { keyPath: 'userName' });
+                console.log('done');
+            }
+
+        };
+    }
+
+    //show all data
+    function readAllTransaction() {
+
+        var transaction = db.transaction("users", 'readwrite');
+
+        var users = transaction.objectStore('users');
+
+
+        users.openCursor().onsuccess = function (event) {
+            var cursor = event.target.result;
+
+            if (cursor) {
+
+                console.log(cursor.value.userName);
+                console.log(cursor.value.password);
+                console.log(cursor.value.flight);
+                cursor.continue();
+            } else {
+
+            }
+        };
+
+
+    }
+    // add book flight
+    function updateTransaction(pk) {
+
+        var transaction = db.transaction("users", 'readwrite');
+
+        var users = transaction.objectStore('users');
+
+
+
+        var result = users.get(loginUser);
+        result.onsuccess = function (e) {
+
+            var userObj = e.target.result;
+            userObj.flight.push(parseInt(pk));
+            users.put(userObj);
+        }
+
+        // change to booked
+        $("#" + pk + "").text("booked").css({ "background-color": "rgb(0, 221, 18)" })
+
+
+    }
+
+    //check is login
+    function bookFlight(pk) {
+        //not loging
+        if (loginUser == "") {
+            window.location = "/pages/userLogin.html"
+        } else {
+            updateTransaction(pk);
+        }
+    }
+
+    function getLoginUser() {
+
+        var reg = new RegExp("index=([^]*)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            loginUser = r[1];
+            $("#recommendation").text("Hi " + loginUser + ", welcome!").css({ "background-color": "yellow" })
+            viewBooking();
+        } else {
+            loginUser = "";
+        }
+    }
+
+    function viewBooking() {
+        $("#logging").css({ "display": "none" });
+        $("#register").css({ "display": "none" });
+        $("#topOfpage").append("<button id='myBooking'>check my booking</button>")
+
+        $("#topOfpage").append("<button id='logout'>log out</button>")
+        $("#myBooking").click(function () {
+            window.location = "/pages/userLogin.html? index=" + loginUser;
+        })
+
+
+        $("#logout").on("click", () => {
+            window.location = "/main.html"
+        });
+    }
+
 
 })
