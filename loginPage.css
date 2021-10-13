@@ -1,0 +1,154 @@
+* {
+    text-align: center;
+    margin: auto;
+}
+
+#topOfpage {
+    /* background-color: mediumturquoise; */
+    font-style: italic;
+    font-size: 70px;
+    background: url(/img/topPageImg.png) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: left;
+    color: rgb(14, 53, 112);
+}
+
+#loginTable{
+    font-size: 50px;
+    top: 90px;
+    position: relative;
+    background-color: rgba(248, 244, 21, 0.5);
+    width: 1000px;
+
+}
+
+#outside{
+    background: url(/img/back.jpg) no-repeat center center;
+    background-size: cover;
+    border-radius: 70px;
+    height: 500px;
+    width: 1200px;
+    font-weight: 20;
+    
+   
+}
+.inputBox{
+   
+    height: 40px;
+    width: 190px;
+    position: relative;
+    bottom: 10px;
+    
+   
+}
+
+.leftTable{
+    text-align: left;
+}
+
+button{
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    cursor: pointer;
+    left: 0;
+    padding: 10px 60px;
+    border: 1px solid rgba(59,114,204,1);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal 16px/normal "Times New Roman", Times, serif;
+    color: rgba(242,101,101,0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(237,242,101,0.9);
+    -webkit-box-shadow: 6px 2px 4px 0 rgba(150,24,24,0.2) ;
+    box-shadow: 6px 2px 4px 0 rgba(150,24,24,0.2) ;
+    text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+    -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    position: relative;
+    bottom: 9px;
+    font-size: 30px;
+  }
+
+  .buttons {
+    background-color: aliceblue;
+}
+
+.airlineImg {
+    width: 100px;
+    height: 100px;
+}
+
+.space {
+    width: 70px;
+}
+
+.arrow {
+    width: 100px;
+    height: 70px;
+}
+
+.firstRowData {
+    vertical-align: bottom;
+    font-size: 25px;
+    width: 250px;
+}
+
+.secondRowData {
+    vertical-align: top;
+    color: rgb(42, 107, 192);
+}
+
+.recommendationTable {
+    background-color: antiquewhite;
+    height: 120px;
+    top: 20px;
+    border-radius: 5px;
+}
+
+.bookButton {
+    background-color: #e7eb01;
+    border: none;
+    color: rgb(60, 160, 185);
+    padding: 10px 32px;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 16px;
+    vertical-align: bottom;
+}
+
+#head{
+    background-color: rgb(240, 240, 240);
+    font-size: 40px;
+    font-weight: 10;
+}
+
+#userInfo{
+
+  color: rgb(0, 145, 145);
+  font-size: 30px;
+}
+
+#active{
+    position: relative;
+    bottom:40px;
+    color: green;
+}
+
+#register{
+    position: relative;
+    right: 400px;
+    top: 95px;
+    color: rgb(0, 71, 165);
+    font-size: 20px;
+}
+
+#alertSuccessInfo{
+    color: green;
+    font-size: 50px;
+}
