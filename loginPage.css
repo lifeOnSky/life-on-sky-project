@@ -47,6 +47,10 @@
     text-align: left;
 }
 
+.changeDetails{
+    background-color: rgb(252, 189, 112);
+}
+
 button{
     display: inline-block;
     -webkit-box-sizing: content-box;
@@ -75,7 +79,7 @@ button{
     font-size: 30px;
   }
 
-  .buttons {
+.buttons {
     background-color: aliceblue;
 }
 
@@ -151,4 +155,8 @@ button{
 #alertSuccessInfo{
     color: green;
     font-size: 50px;
+}
+
+#back{
+    margin-right: 20px;
 }

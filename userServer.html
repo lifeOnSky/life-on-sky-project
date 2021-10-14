@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+
+
+    <title>Fly Dream Air</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/pages/userServer.js"> </script>
+
+
+    <link rel="stylesheet" type="text/css" href="/pages/userServer.css">
+
+</head>
+
+<body>
+    <div id="topOfpage"><img src="/img/flightIcon.jpg" alt="icon" height="120px"> Fly Dream Air</div>
+
+    <div id="outside">
+
+
+        <table id="seatTable" border="1">
+            <tr>
+                <td colspan="2" id="tableTitle" class="titles">book your seats</td>
+            </tr>
+            <tr>
+                <td id="seatAlert">please select the seat: </td>
+                <td><select id="avaliableSeat">
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <table id="foodTable" border="1">
+            <tr>
+                <td colspan="4" id="foodTitle" class="titles">select your meal</td>
+            </tr>
+
+            <tr>
+                <td>fast food</td>
+                <td>checken with rice</td>
+                <td>Moslem male</td>
+                <td>checken with noodle</td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" name="food" value="fast food"></td>
+                <td><input type="radio" name="food" value="checken with rice"></td>
+                <td><input type="radio" name="food" value="Moslem male"></td>
+                <td><input type="radio" name="food" value="checken with noodle"></td>
+            </tr>
+
+            <tr>
+                <td><img src="/img/fast food.png" height="120px" width="120"></td>
+                <td><img src="/img/checken with rice.png" height="120px" width="120"></td>
+                <td><img src="/img/Moslem male.png" height="120px" width="120"></td>
+                <td><img src="/img/checken with noodle.png" height="120px" width="120"></td>
+            </tr>
+
+            <tr>
+                <td colspan="4" id="drinkTitle" class="titles">select your drink</td>
+            </tr>
+
+            <tr>
+                <td>cafe</td>
+                <td>juice</td>
+                <td>pepsi</td>
+                <td>champagne</td>
+            </tr>
+            <tr>
+                <td><img src="/img/cafe.png" height="120px" width="120"></td>
+                <td><img src="/img/juice.png" height="120px" width="120"></td>
+                <td><img src="/img/pepci.png" height="120px" width="120"></td>
+                <td><img src="/img/champagne.png" height="120px" width="120"></td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" name="drink" value="fast food"></td>
+                <td><input type="radio" name="drink" value="checken with rice"></td>
+                <td><input type="radio" name="drink" value="Moslem male"></td>
+                <td><input type="radio" name="drink" value="checken with noodle"></td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <table id="noteTable">
+            <tr>
+                <td class="titles">Leave your note</td>
+            </tr>
+            <tr>
+                <td><textarea name="note" id="" cols="30" rows="10"></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="submit">submit</button>
+
+    </div>
+
+    <div id="done">
+
+        <img src="/img/true.jpg" alt="">
+        <div id="alertInfo">Your reservation information has been saved</div>
+        <button id="back">back</button>
+    </div>
+
+</body>
+
+</html>

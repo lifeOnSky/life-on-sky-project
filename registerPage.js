@@ -12,6 +12,9 @@ $(document).ready(function () {
 
     });
 
+    $("#back").on("click", () => {
+        window.location = "/main.html";
+    });
 
 
     function validatePassword(name, value1, value2) {
@@ -79,7 +82,7 @@ $(document).ready(function () {
         let user = {
             userName: username,
             password: password,
-            flight: flight,
+            flight: flight
         };
 
         let request = users.add(user);
@@ -124,6 +127,7 @@ $(document).ready(function () {
                 console.log(cursor.value.userName);
                 console.log(cursor.value.password);
                 console.log(cursor.value.flight);
+                console.log(cursor.value.isServer);
                 cursor.continue();
             } else {
 
