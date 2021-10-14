@@ -7,7 +7,7 @@
     /* background-color: mediumturquoise; */
     font-style: italic;
     font-size: 70px;
-    background: url(img/topPageImg.png) no-repeat center center;
+    background: url(/img/topPageImg.png) no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     text-align: left;
@@ -117,4 +117,23 @@ option {
     vertical-align: bottom;
 
     
+}
+
+#logging {
+    font-size: 20px;
+}
+
+#register {
+    font-size: 20px;
+}
+
+
+#myBooking {
+    font-size: 20px;
+}
+
+#logout{
+    font-size: 20px;
+    position: relative;
+    left: 30px;
 }

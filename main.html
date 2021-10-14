@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <head>
-    <meta name="viewport" initial-scale="75"/>
+    <meta name="viewport" initial-scale="75" />
 
-    <title>Life On Sky</title>
+    <title>Fly Dream Air</title>
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -17,10 +17,11 @@
 <body>
 
 
-    <div id="topOfpage"><img src="img/flightIcon.jpg" alt="icon" height="120px"> Life On Sky
+    <div id="topOfpage"><img src="img/flightIcon.jpg" alt="icon" height="120px">  Fly Dream Air
 
-        <button class="buttons">logging</button>
-        <button class="buttons">buzhidaoxiesha</button>
+        <button id="logging">logging</button>
+        <button id="register">register</button>
+        
     </div>
 
     <br>
@@ -34,7 +35,7 @@
                 <td id="seatType">
                     <label><input type="radio" name="type" value="First">first class</label>
                     <label><input type="radio" name="type" value="Business">Business</label>
-                    <label><input type="radio" name="type" value="Economy" checked >Economy</label>
+                    <label><input type="radio" name="type" value="Economy" checked>Economy</label>
 
                 </td>
             </tr>
@@ -69,7 +70,7 @@
                 <td class='space'></td>
                 <td id="extraServer">
                     <input type="radio" name="services" value="yes"><label>Yes</label>
-                    <input type="radio" name="services" value="no" checked ><label>No</label>
+                    <input type="radio" name="services" value="no" checked><label>No</label>
                 </td>
             </tr>
         </table>

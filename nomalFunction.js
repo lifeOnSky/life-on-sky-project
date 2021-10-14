@@ -239,8 +239,13 @@ $(document).ready(function () {
         var result = users.get(loginUser);
         result.onsuccess = function (e) {
 
+            var arr = new Array();
+            arr[0] = parseInt(pk);
+            arr[1] = false;
+
+
             var userObj = e.target.result;
-            userObj.flight.push(parseInt(pk));
+            userObj.flight.push(arr);
             users.put(userObj);
         }
 
